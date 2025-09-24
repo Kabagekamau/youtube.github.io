@@ -18,15 +18,44 @@
             line-height: 1.4;
         }
 
-        /* YouTube Header */
+        /* Updated to exact YouTube header styling */
         .youtube-header {
-            background-color: #212121;
+            background-color: #0f0f0f;
             padding: 0 16px;
             height: 56px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid #303030;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: none;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-btn:hover {
+            background-color: #272727;
         }
 
         .youtube-logo {
@@ -41,9 +70,10 @@
         .logo-icon {
             background-color: #ff0000;
             color: white;
-            padding: 8px 12px;
+            padding: 6px 8px;
             border-radius: 4px;
-            margin-right: 8px;
+            margin-right: 2px;
+            font-size: 18px;
         }
 
         .search-container {
@@ -51,6 +81,7 @@
             max-width: 640px;
             margin: 0 40px;
             display: flex;
+            align-items: center;
         }
 
         .search-input {
@@ -58,24 +89,34 @@
             background-color: #121212;
             border: 1px solid #303030;
             color: #fff;
-            padding: 8px 12px;
-            border-radius: 20px 0 0 20px;
+            padding: 10px 16px;
+            border-radius: 40px 0 0 40px;
             outline: none;
+            font-size: 16px;
+        }
+
+        .search-input:focus {
+            border-color: #1c62b9;
         }
 
         .search-button {
-            background-color: #303030;
+            background-color: #222222;
             border: 1px solid #303030;
             color: #fff;
-            padding: 8px 16px;
-            border-radius: 0 20px 20px 0;
+            padding: 10px 20px;
+            border-radius: 0 40px 40px 0;
             cursor: pointer;
+            border-left: none;
+        }
+
+        .search-button:hover {
+            background-color: #3c3c3c;
         }
 
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 8px;
         }
 
         .create-btn, .notifications-btn, .profile-btn {
@@ -85,10 +126,74 @@
             cursor: pointer;
             padding: 8px;
             border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .create-btn:hover, .notifications-btn:hover, .profile-btn:hover {
-            background-color: #303030;
+            background-color: #272727;
+        }
+
+        /* Added left sidebar like real YouTube */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 56px;
+            width: 240px;
+            height: calc(100vh - 56px);
+            background-color: #0f0f0f;
+            padding: 12px 0;
+            overflow-y: auto;
+            z-index: 999;
+        }
+
+        .sidebar-section {
+            margin-bottom: 8px;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 24px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+            transition: background-color 0.1s;
+        }
+
+        .sidebar-item:hover {
+            background-color: #272727;
+        }
+
+        .sidebar-item.active {
+            background-color: #272727;
+            font-weight: 500;
+        }
+
+        .sidebar-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sidebar-divider {
+            height: 1px;
+            background-color: #3f3f3f;
+            margin: 12px 0;
+        }
+
+        /* Updated main content to account for sidebar */
+        .main-content {
+            margin-left: 240px;
+            margin-top: 56px;
+            min-height: calc(100vh - 56px);
         }
 
         /* Channel Banner */
@@ -128,62 +233,74 @@
             opacity: 0.9;
         }
 
-        /* Channel Header */
+        /* Exact YouTube channel header styling */
         .channel-header {
-            padding: 16px;
-            background-color: #212121;
-            border-bottom: 1px solid #303030;
+            padding: 16px 24px;
+            background-color: #0f0f0f;
         }
 
         .channel-info {
             display: flex;
-            align-items: center;
-            gap: 16px;
+            align-items: flex-start;
+            gap: 24px;
         }
 
         .channel-avatar {
-            width: 80px;
-            height: 80px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
+            font-size: 64px;
             font-weight: bold;
             color: white;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            flex-shrink: 0;
         }
 
         .channel-details {
             flex: 1;
+            padding-top: 8px;
         }
 
         .channel-name {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 36px;
+            font-weight: 900;
             margin-bottom: 4px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #fff;
+        }
+
+        .channel-handle {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 4px;
         }
 
         .channel-meta {
             color: #aaa;
             font-size: 14px;
-            margin-bottom: 8px;
+            margin-bottom: 16px;
         }
 
         .channel-description {
             color: #ccc;
             font-size: 14px;
             max-width: 600px;
+            line-height: 1.4;
+        }
+
+        .channel-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
         }
 
         .subscribe-button {
-            background-color: #ff0000;
-            color: #fff;
+            background-color: #fff;
+            color: #0f0f0f;
             border: none;
             padding: 10px 16px;
             border-radius: 18px;
@@ -194,30 +311,52 @@
         }
 
         .subscribe-button:hover {
-            background-color: #cc0000;
+            background-color: #d9d9d9;
         }
 
-        /* Navigation */
+        .join-button {
+            background-color: #0f0f0f;
+            color: #fff;
+            border: 1px solid #3f3f3f;
+            padding: 10px 16px;
+            border-radius: 18px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .join-button:hover {
+            background-color: #272727;
+        }
+
+        /* Exact YouTube navigation tabs */
         .channel-nav {
-            background-color: #212121;
-            border-bottom: 1px solid #303030;
+            background-color: #0f0f0f;
+            border-bottom: 1px solid #3f3f3f;
             overflow-x: auto;
+            position: sticky;
+            top: 56px;
+            z-index: 100;
         }
 
         .nav-container {
             display: flex;
-            padding: 0 16px;
+            padding: 0 24px;
             min-width: max-content;
         }
 
         .nav-item {
-            padding: 16px 24px;
+            padding: 16px 32px;
             color: #aaa;
             text-decoration: none;
             font-weight: 500;
+            font-size: 14px;
             border-bottom: 3px solid transparent;
             transition: all 0.2s;
             cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .nav-item:hover {
@@ -232,7 +371,7 @@
         /* Content Sections */
         .content-section {
             display: none;
-            padding: 24px 16px;
+            padding: 24px;
         }
 
         .content-section.active {
@@ -241,38 +380,31 @@
 
         .section-title {
             font-size: 20px;
-            font-weight: bold;
+            font-weight: 600;
             margin-bottom: 16px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #fff;
         }
 
-        /* Video Grid */
+        /* Exact YouTube video grid styling */
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 16px;
             margin-bottom: 32px;
         }
 
         .video-card {
-            background-color: #1a1a1a;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: 1px solid #303030;
+            cursor: pointer;
+            transition: transform 0.1s;
         }
 
         .video-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            transform: scale(1.02);
         }
 
         .video-thumbnail {
             width: 100%;
-            height: 160px;
+            height: 180px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             display: flex;
             align-items: center;
@@ -282,6 +414,8 @@
             font-weight: bold;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
             position: relative;
+            border-radius: 12px;
+            overflow: hidden;
         }
 
         .video-duration {
@@ -290,18 +424,18 @@
             right: 8px;
             background-color: rgba(0, 0, 0, 0.8);
             color: #fff;
-            padding: 2px 6px;
-            border-radius: 4px;
+            padding: 2px 4px;
+            border-radius: 2px;
             font-size: 12px;
-            font-weight: bold;
+            font-weight: 500;
         }
 
         .video-details {
-            padding: 12px;
+            padding: 12px 0;
         }
 
         .video-title {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 500;
             margin-bottom: 4px;
             color: #fff;
@@ -314,7 +448,7 @@
 
         .video-meta {
             color: #aaa;
-            font-size: 12px;
+            font-size: 14px;
         }
 
         .featured-badge {
@@ -327,31 +461,27 @@
             margin-left: 8px;
         }
 
-        /* Playlist Grid */
+        /* YouTube-style playlist cards */
         .playlist-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 20px;
+            gap: 16px;
             margin-bottom: 32px;
         }
 
         .playlist-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.2s, box-shadow 0.2s;
-            position: relative;
+            cursor: pointer;
+            transition: transform 0.1s;
         }
 
         .playlist-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            transform: scale(1.02);
         }
 
         .playlist-thumbnail {
             width: 100%;
             height: 180px;
-            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -360,6 +490,8 @@
             font-weight: bold;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
             position: relative;
+            border-radius: 12px;
+            overflow: hidden;
         }
 
         .playlist-count {
@@ -369,31 +501,30 @@
             background-color: rgba(0, 0, 0, 0.8);
             color: #fff;
             padding: 4px 8px;
-            border-radius: 4px;
+            border-radius: 2px;
             font-size: 12px;
-            font-weight: bold;
+            font-weight: 500;
         }
 
         .playlist-details {
-            padding: 16px;
-            background: rgba(0,0,0,0.3);
+            padding: 12px 0;
         }
 
         .playlist-title {
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 500;
             margin-bottom: 4px;
-            color: white;
+            color: #fff;
         }
 
         .playlist-meta {
-            color: rgba(255,255,255,0.8);
-            font-size: 12px;
+            color: #aaa;
+            font-size: 14px;
         }
 
         /* About Section */
         .about-content {
-            max-width: 800px;
+            max-width: 1200px;
         }
 
         .about-description {
@@ -454,7 +585,33 @@
             opacity: 0.9;
         }
 
+        /* Added collaboration artist headers */
+        .artist-header {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 32px 0 16px 0;
+            color: #fff;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3f3f3f;
+        }
+
         /* Responsive */
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-240px);
+                transition: transform 0.3s;
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .search-container {
+                max-width: 400px;
+                margin: 0 16px;
+            }
+        }
+
         @media (max-width: 768px) {
             .search-container {
                 display: none;
@@ -463,11 +620,21 @@
             .channel-info {
                 flex-direction: column;
                 text-align: center;
-                gap: 12px;
+                gap: 16px;
+            }
+            
+            .channel-avatar {
+                width: 120px;
+                height: 120px;
+                font-size: 48px;
+            }
+            
+            .channel-name {
+                font-size: 28px;
             }
             
             .video-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             }
             
             .playlist-grid {
@@ -481,12 +648,15 @@
     </style>
 </head>
 <body>
-     YouTube Header 
+    <!-- Authentic YouTube header with sidebar toggle -->
     <div class="youtube-header">
-        <a href="#" class="youtube-logo">
-            <div class="logo-icon">▶</div>
-            YouTube
-        </a>
+        <div class="header-left">
+            <button class="menu-btn">☰</button>
+            <a href="#" class="youtube-logo">
+                <div class="logo-icon">▶</div>
+                YouTube
+            </a>
+        </div>
         <div class="search-container">
             <input type="text" class="search-input" placeholder="Search">
             <button class="search-button">🔍</button>
@@ -498,1301 +668,1484 @@
         </div>
     </div>
 
-     Channel Banner 
-    <div class="channel-banner">
-        <div class="banner-overlay">
-            <div class="banner-text">
-                <div class="banner-title">KABAGE KAMAU</div>
-                <div class="banner-subtitle">Gospel Music Minister • Singer • Songwriter</div>
-            </div>
+    <!-- Added authentic YouTube sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-section">
+            <a href="#" class="sidebar-item active">
+                <div class="sidebar-icon">🏠</div>
+                Home
+            </a>
+            <a href="#" class="sidebar-item">
+                <div class="sidebar-icon">🩳</div>
+                Shorts
+            </a>
+            <a href="#" class="sidebar-item">
+                <div class="sidebar-icon">📺</div>
+                Subscriptions
+            </a>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-section">
+            <a href="#" class="sidebar-item">
+                <div class="sidebar-icon">📚</div>
+                Library
+            </a>
+            <a href="#" class="sidebar-item">
+                <div class="sidebar-icon">📜</div>
+                History
+            </a>
+            <a href="#" class="sidebar-item">
+                <div class="sidebar-icon">🎵</div>
+                Your videos
+            </a>
+            <a href="#" class="sidebar-item">
+                <div class="sidebar-icon">⏰</div>
+                Watch later
+            </a>
+            <a href="#" class="sidebar-item">
+                <div class="sidebar-icon">👍</div>
+                Liked videos
+            </a>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-section">
+            <a href="#" class="sidebar-item">
+                <div class="sidebar-icon">🎵</div>
+                Music
+            </a>
+            <a href="#" class="sidebar-item">
+                <div class="sidebar-icon">🎮</div>
+                Gaming
+            </a>
+            <a href="#" class="sidebar-item">
+                <div class="sidebar-icon">⚽</div>
+                Sports
+            </a>
         </div>
     </div>
 
-     Channel Header 
-    <div class="channel-header">
-        <div class="channel-info">
-            <div class="channel-avatar">✝️</div>
-            <div class="channel-details">
-                <h1 class="channel-name">Kabage Kamau</h1>
-                <div class="channel-meta">@KabageKamauofficial • 48.3M subscribers • 305 videos</div>
-                <div class="channel-meta"> 150 music videos</div>
-                <div class="channel-description">
-                    Official YouTube channel of Kabage Kamau - Gospel music artist, singer/songwriter, recording artist spreading the message of Jesus Christ through powerful worship and praise songs.
-                </div>
-            </div>
-            <button class="subscribe-button">SUBSCRIBE</button>
-        </div>
-    </div>
-
-     Navigation 
-    <div class="channel-nav">
-        <div class="nav-container">
-            <div class="nav-item active" onclick="showSection('home')">Home</div>
-            <div class="nav-item" onclick="showSection('videos')">Videos</div>
-            <div class="nav-item" onclick="showSection('playlists')">Playlists</div>
-            <div class="nav-item" onclick="showSection('collaborations')">Collaborations</div>
-            <div class="nav-item" onclick="showSection('about')">About</div>
-        </div>
-    </div>
-
-     Home Section 
-    <div id="home" class="content-section active">
-        <div class="section-title">Featured Videos</div>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-thumbnail">
-                    Jesus Christ on the cross
-                    <div class="video-duration">24:45</div>
-                </div>
-                <div class="video-details">
-                    <div class="video-title">Jesus Christ on the cross <span class="featured-badge">FEATURED</span></div>
-                    <div class="video-meta">2,210,400,000 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">
-                    Let it all Work Out Jesus
-                    <div class="video-duration">22:00</div>
-                </div>
-                <div class="video-details">
-                    <div class="video-title">Let it all Work Out Jesus <span class="featured-badge">HIT SONG</span></div>
-                    <div class="video-meta">2,883,700,000 views • 5 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">
-                    Jesus Christ
-                    <div class="video-duration">25:00</div>
-                </div>
-                <div class="video-details">
-                    <div class="video-title">Jesus Christ <span class="featured-badge">FEATURED</span></div>
-                    <div class="video-meta">1,310,400,000 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">
-                    The Risen King Jesus
-                    <div class="video-duration">25:30</div>
-                </div>
-                <div class="video-details">
-                    <div class="video-title">The Risen King Jesus (ft. Cece Winans)</div>
-                    <div class="video-meta">1,569,876,543 views • 3 years ago</div>
+    <div class="main-content">
+        <!-- Channel Banner -->
+        <div class="channel-banner">
+            <div class="banner-overlay">
+                <div class="banner-text">
+                    <div class="banner-title">KABAGE KAMAU</div>
+                    <div class="banner-subtitle">Gospel Music Minister • Singer • Songwriter</div>
                 </div>
             </div>
         </div>
 
-        <div class="section-title">Recent Uploads</div>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-thumbnail">
-                    I Believe in Christ Jesus
-                    <div class="video-duration">12:34</div>
-                </div>
-                <div class="video-details">
-                    <div class="video-title">I Believe in Christ Jesus</div>
-                    <div class="video-meta">77,870,000 views • 10 months ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">
-                    The Cross of Christ
-                    <div class="video-duration">15:12</div>
-                </div>
-                <div class="video-details">
-                    <div class="video-title">The Cross of Christ</div>
-                    <div class="video-meta">155,967,000 views • 11 months ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">
-                    Israel!!Israel!!Israel!
-                    <div class="video-duration">7:56</div>
-                </div>
-                <div class="video-details">
-                    <div class="video-title">Israel!!Israel!!Israel!</div>
-                    <div class="video-meta">20,790,000 views • 5 months ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">
-                    John 3:16
-                    <div class="video-duration">19:08</div>
-                </div>
-                <div class="video-details">
-                    <div class="video-title">John 3:16</div>
-                    <div class="video-meta">101,976,000 views • 9 months ago</div>
+        <!-- Updated channel header to match YouTube exactly -->
+        <div class="channel-header">
+            <div class="channel-info">
+                <div class="channel-avatar">✝️</div>
+                <div class="channel-details">
+                    <h1 class="channel-name">Kabage Kamau</h1>
+                    <div class="channel-handle">@KabageKamauofficial</div>
+                    <div class="channel-meta">48.3M subscribers • 305 videos</div>
+                    142 music videos
+                    <div class="channel-description">
+                        Official YouTube channel of Kabage Kamau - Gospel artist, singer/songwriter, recording artist spreading the message of Jesus Christ through powerful worship and praise songs.
+                        
+                    </div>
+                    <div class="channel-actions">
+                        <button class="subscribe-button">Subscribe</button>
+                        <button class="join-button">Join</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-     Videos Section 
-    <div id="videos" class="content-section">
-        <div class="section-title">All Videos</div>
-        <div class="video-grid">
-             Recent Releases 
-            <div class="video-card">
-                <div class="video-thumbnail">I Believe in Christ Jesus<div class="video-duration">12:34</div></div>
-                <div class="video-details">
-                    <div class="video-title">I Believe in Christ Jesus</div>
-                    <div class="video-meta">77,870,000 views • 10 months ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">The Cross of Christ<div class="video-duration">15:12</div></div>
-                <div class="video-details">
-                    <div class="video-title">The Cross of Christ</div>
-                    <div class="video-meta">155,967,000 views • 11 months ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Israel!!Israel!!Israel!<div class="video-duration">7:56</div></div>
-                <div class="video-details">
-                    <div class="video-title">Israel!!Israel!!Israel!</div>
-                    <div class="video-meta">20,790,000 views • 5 months ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">John 3:16<div class="video-duration">19:08</div></div>
-                <div class="video-details">
-                    <div class="video-title">John 3:16</div>
-                    <div class="video-meta">101,976,000 views • 9 months ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Parables of Jesus<div class="video-duration">8:22</div></div>
-                <div class="video-details">
-                    <div class="video-title">Parables of Jesus</div>
-                    <div class="video-meta">50,200,000 views • 3 months ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Jeremiah 29:11<div class="video-duration">22:01</div></div>
-                <div class="video-details">
-                    <div class="video-title">Jeremiah 29:11</div>
-                    <div class="video-meta">52,000,000 views • 11 months ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Imani (ft. Sarah K)<div class="video-duration">10:45</div></div>
-                <div class="video-details">
-                    <div class="video-title">Imani (ft. Sarah K)</div>
-                    <div class="video-meta">43,309,000 views • 8 months ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Sitakufa Bali Nitaishi<div class="video-duration">18:30</div></div>
-                <div class="video-details">
-                    <div class="video-title">Sitakufa Bali Nitaishi</div>
-                    <div class="video-meta">94,400,000 views • 1 year ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Halleluya (ft. Israel Mbonyi)<div class="video-duration">20:15</div></div>
-                <div class="video-details">
-                    <div class="video-title">Halleluya (ft. Israel Mbonyi)</div>
-                    <div class="video-meta">56,000,000 views • 6 months ago</div>
-                </div>
-            </div>
-
-             Grace Melodies Album 
-            <div class="video-card">
-                <div class="video-thumbnail">Moses and Pharaoh<div class="video-duration">7:10</div></div>
-                <div class="video-details">
-                    <div class="video-title">Moses and Pharaoh</div>
-                    <div class="video-meta">32,760,000 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Give Your Life to Jesus<div class="video-duration">14:05</div></div>
-                <div class="video-details">
-                    <div class="video-title">Give Your Life to Jesus</div>
-                    <div class="video-meta">83,900,000 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Love from God<div class="video-duration">11:58</div></div>
-                <div class="video-details">
-                    <div class="video-title">Love from God</div>
-                    <div class="video-meta">88,900,000 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Jesus Christ<div class="video-duration">25:00</div></div>
-                <div class="video-details">
-                    <div class="video-title">Jesus Christ <span class="featured-badge">FEATURED</span></div>
-                    <div class="video-meta">1,310,400,000 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Noah and His Ark<div class="video-duration">16:40</div></div>
-                <div class="video-details">
-                    <div class="video-title">Noah and His Ark</div>
-                    <div class="video-meta">142,300,000 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">My Kenya, My Homeland<div class="video-duration">13:20</div></div>
-                <div class="video-details">
-                    <div class="video-title">My Kenya, My Homeland, My Country</div>
-                    <div class="video-meta">272,000,000 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">The power of your name<div class="video-duration">18:50</div></div>
-                <div class="video-details">
-                    <div class="video-title">The power of your name</div>
-                    <div class="video-meta">813,900,000 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Our God is a Healer<div class="video-duration">21:30</div></div>
-                <div class="video-details">
-                    <div class="video-title">Our God is a Healer</div>
-                    <div class="video-meta">188,900,000 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Jesus Christ on the cross<div class="video-duration">24:45</div></div>
-                <div class="video-details">
-                    <div class="video-title">Jesus Christ on the cross <span class="featured-badge">FEATURED</span></div>
-                    <div class="video-meta">2,210,400,000 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Let thy Kingdom come<div class="video-duration">10:15</div></div>
-                <div class="video-details">
-                    <div class="video-title">Let thy Kingdom come</div>
-                    <div class="video-meta">142,300,000 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">I love kenya<div class="video-duration">9:50</div></div>
-                <div class="video-details">
-                    <div class="video-title">I love kenya</div>
-                    <div class="video-meta">412,000,000 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">The lion of Judah (ft. Size 8)<div class="video-duration">17:25</div></div>
-                <div class="video-details">
-                    <div class="video-title">The lion of Judah (ft. Size 8)</div>
-                    <div class="video-meta">283,000,000 views • 2 years ago</div>
-                </div>
-            </div>
-
-             Divine Hymns Album 
-            <div class="video-card">
-                <div class="video-thumbnail">Holy Anointing<div class="video-duration">13:10</div></div>
-                <div class="video-details">
-                    <div class="video-title">Holy Anointing</div>
-                    <div class="video-meta">155,456,000 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Tom Mboya, Jomo Kenyatta<div class="video-duration">18:00</div></div>
-                <div class="video-details">
-                    <div class="video-title">Tom Mboya, Jomo Kenyatta, Dedan Kimathi, Mwai Kibaki</div>
-                    <div class="video-meta">313,900,000 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Abraham's Faith<div class="video-duration">9:45</div></div>
-                <div class="video-details">
-                    <div class="video-title">Abraham's Faith</div>
-                    <div class="video-meta">193,900,000 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Revival in the Kenyan Homeland<div class="video-duration">15:20</div></div>
-                <div class="video-details">
-                    <div class="video-title">Revival in the Kenyan Homeland</div>
-                    <div class="video-meta">124,000,000 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">The 12 Apostles of Jesus<div class="video-duration">20:30</div></div>
-                <div class="video-details">
-                    <div class="video-title">The 12 Apostles of Jesus</div>
-                    <div class="video-meta">212,000,000 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">The Last Supper<div class="video-duration">11:05</div></div>
-                <div class="video-details">
-                    <div class="video-title">The Last Supper</div>
-                    <div class="video-meta">132,300,000 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Holy Ghost Fire<div class="video-duration">23:00</div></div>
-                <div class="video-details">
-                    <div class="video-title">Holy Ghost Fire</div>
-                    <div class="video-meta">177,200,000 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Psalm 46:10<div class="video-duration">7:40</div></div>
-                <div class="video-details">
-                    <div class="video-title">Psalm 46:10</div>
-                    <div class="video-meta">138,540,000 views • 3 years ago</div>
-                </div>
-            </div>
-
-             Biblical Songs Album 
-            <div class="video-card">
-                <div class="video-thumbnail">Joseph the Dreamer<div class="video-duration">12:12</div></div>
-                <div class="video-details">
-                    <div class="video-title">Joseph the Dreamer</div>
-                    <div class="video-meta">71,797,000 views • 4 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Adam and Eve<div class="video-duration">15:35</div></div>
-                <div class="video-details">
-                    <div class="video-title">Adam and Eve</div>
-                    <div class="video-meta">44,100,000 views • 4 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Praise Jesus<div class="video-duration">9:10</div></div>
-                <div class="video-details">
-                    <div class="video-title">Praise Jesus</div>
-                    <div class="video-meta">66,987,000 views • 4 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">James and John<div class="video-duration">21:40</div></div>
-                <div class="video-details">
-                    <div class="video-title">James and John (Sons of Thunder)</div>
-                    <div class="video-meta">19,900,000 views • 4 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Jesus and Lazarus<div class="video-duration">17:00</div></div>
-                <div class="video-details">
-                    <div class="video-title">Jesus and Lazarus</div>
-                    <div class="video-meta">79,500,000 views • 4 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Tongues of Fire<div class="video-duration">24:00</div></div>
-                <div class="video-details">
-                    <div class="video-title">Tongues of Fire</div>
-                    <div class="video-meta">239,000,000 views • 4 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Miracles from Heaven<div class="video-duration">10:55</div></div>
-                <div class="video-details">
-                    <div class="video-title">Miracles from Heaven</div>
-                    <div class="video-meta">110,000,000 views • 4 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Jesus christ !!Jesus Christ !!<div class="video-duration">19:30</div></div>
-                <div class="video-details">
-                    <div class="video-title">Jesus christ !!Jesus Christ !! Jesus Christ!! <span class="featured-badge">FEATURED</span></div>
-                    <div class="video-meta">1,473,000,000 views • 4 years ago</div>
-                </div>
-            </div>
-
-             Praise Overflow Album 
-            <div class="video-card">
-                <div class="video-thumbnail">Walls of Jericho<div class="video-duration">12:15</div></div>
-                <div class="video-details">
-                    <div class="video-title">Walls of Jericho</div>
-                    <div class="video-meta">75,500,000 views • 5 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">David's Harp<div class="video-duration">8:40</div></div>
-                <div class="video-details">
-                    <div class="video-title">David's Harp</div>
-                    <div class="video-meta">118,790,000 views • 5 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Let it all Work Out Jesus<div class="video-duration">22:00</div></div>
-                <div class="video-details">
-                    <div class="video-title">Let it all Work Out Jesus <span class="featured-badge">HIT SONG</span></div>
-                    <div class="video-meta">2,883,700,000 views • 5 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">God Can Do<div class="video-duration">15:55</div></div>
-                <div class="video-details">
-                    <div class="video-title">God Can Do</div>
-                    <div class="video-meta">253,787,000 views • 5 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Resurrection Power<div class="video-duration">14:20</div></div>
-                <div class="video-details">
-                    <div class="video-title">Resurrection Power</div>
-                    <div class="video-meta">197,900,000 views • 5 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Isaiah, Jeremiah, Elijah<div class="video-duration">16:30</div></div>
-                <div class="video-details">
-                    <div class="video-title">Isaiah, Jeremiah, Elijah and Elisha</div>
-                    <div class="video-meta">149,000,000 views • 5 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Chosen and Anointed<div class="video-duration">9:50</div></div>
-                <div class="video-details">
-                    <div class="video-title">Chosen and Anointed</div>
-                    <div class="video-meta">93,000,000 views • 5 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">My prayer to jesus<div class="video-duration">18:10</div></div>
-                <div class="video-details">
-                    <div class="video-title">My prayer to jesus</div>
-                    <div class="video-meta">397,900,000 views • 5 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">The story of Job<div class="video-duration">11:00</div></div>
-                <div class="video-details">
-                    <div class="video-title">The story of Job</div>
-                    <div class="video-meta">189,000,000 views • 5 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Joy in Jesus<div class="video-duration">20:25</div></div>
-                <div class="video-details">
-                    <div class="video-title">Joy in Jesus</div>
-                    <div class="video-meta">203,000,000 views • 5 years ago</div>
-                </div>
-            </div>
-
-             First Album - Savior 
-            <div class="video-card">
-                <div class="video-thumbnail">Jezebel spirit<div class="video-duration">10:05</div></div>
-                <div class="video-details">
-                    <div class="video-title">Jezebel Spirit</div>
-                    <div class="video-meta">69,797,000 views • 6 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Jonah in nineveh<div class="video-duration">14:50</div></div>
-                <div class="video-details">
-                    <div class="video-title">Jonah in nineveh</div>
-                    <div class="video-meta">54,100,000 views • 6 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Praise JESUS<div class="video-duration">23:15</div></div>
-                <div class="video-details">
-                    <div class="video-title">Praise JESUS</div>
-                    <div class="video-meta">94,987,000 views • 6 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">mwai kibaki<div class="video-duration">11:30</div></div>
-                <div class="video-details">
-                    <div class="video-title">mwai kibaki</div>
-                    <div class="video-meta">52,500,000 views • 6 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">David versus Goliath<div class="video-duration">16:55</div></div>
-                <div class="video-details">
-                    <div class="video-title">David versus Goliath</div>
-                    <div class="video-meta">159,000,000 views • 6 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Joshua,Samuel,Samson and Gideon <div class="video-duration">20:45</div></div>
-                <div class="video-details">
-                    <div class="video-title">Joshua,Samuel,Samson, and Gideon</div>
-                    <div class="video-meta">173,000,000 views • 6 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Jesus christ our saviour<div class="video-duration">25:00</div></div>
-                <div class="video-details">
-                    <div class="video-title">Jesus christ our saviour <span class="featured-badge">MY FIRST SONG</span></div>
-                    <div class="video-meta">759,000,000 views • 6 years ago</div>
-                </div>
+        <!-- Updated navigation to match YouTube styling -->
+        <div class="channel-nav">
+            <div class="nav-container">
+                <div class="nav-item active" onclick="showSection('home')">Home</div>
+                <div class="nav-item" onclick="showSection('videos')">Videos</div>
+                <div class="nav-item" onclick="showSection('shorts')">Shorts</div>
+                <div class="nav-item" onclick="showSection('live')">Live</div>
+                <div class="nav-item" onclick="showSection('playlists')">Playlists</div>
+                <div class="nav-item" onclick="showSection('collaborations')">Collaborations</div>
+                <div class="nav-item" onclick="showSection('community')">Community</div>
+                <div class="nav-item" onclick="showSection('about')">About</div>
             </div>
         </div>
-    </div>
 
-     Playlists Section 
-    <div id="playlists" class="content-section">
-        <div class="section-title">Albums & Playlists</div>
-        <div class="playlist-grid">
-            <div class="playlist-card">
-                <div class="playlist-thumbnail">
-                    New Beginnings
-                    <div class="playlist-count">12 videos</div>
+        <!-- Home Section -->
+        <div id="home" class="content-section active">
+            <div class="section-title">For you</div>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        Jesus Christ on the cross
+                        <div class="video-duration">24:45</div>
+                    </div>
+                    <div class="video-details">
+                        <div class="video-title">Jesus Christ on the cross <span class="featured-badge">FEATURED</span></div>
+                        <div class="video-meta">2.2B views • 2 years ago</div>
+                    </div>
                 </div>
-                <div class="playlist-details">
-                    <div class="playlist-title">New Beginnings (Recent Releases)</div>
-                    <div class="playlist-meta">Latest gospel songs • Updated recently</div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        Let it all Work Out Jesus
+                        <div class="video-duration">22:00</div>
+                    </div>
+                    <div class="video-details">
+                        <div class="video-title">Let it all Work Out Jesus <span class="featured-badge">HIT SONG</span></div>
+                        <div class="video-meta">2.8B views • 5 years ago</div>
+                    </div>
                 </div>
-            </div>
-            <div class="playlist-card">
-                <div class="playlist-thumbnail">
-                    Grace Melodies
-                    <div class="playlist-count">12 videos</div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        Jesus Christ
+                        <div class="video-duration">21:47</div>
+                    </div>
+                    <div class="video-details">
+                        <div class="video-title">Jesus Christ <span class="featured-badge">FEATURED</span></div>
+                        <div class="video-meta">1.3B views • 2 years ago</div>
+                    </div>
                 </div>
-                <div class="playlist-details">
-                    <div class="playlist-title">Grace Melodies</div>
-                    <div class="playlist-meta">2 years ago • 12 songs</div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        The Risen King Jesus
+                        <div class="video-duration">25:34</div>
+                    </div>
+                    <div class="video-details">
+                        <div class="video-title">Jesus Christ <span class="featured-badge">FEATURED</span></div>
+                        <div class="video-title">The Risen King Jesus (ft. Cece Winans)</div>
+                        <div class="video-meta">1.5B views • 3 years ago</div>
+                    </div>
                 </div>
-            </div>
-            <div class="playlist-card">
-                <div class="playlist-thumbnail">
-                    Divine Hymns
-                    <div class="playlist-count">10 music videos</div>
-                </div>
-                <div class="playlist-details">
-                    <div class="playlist-title">Divine Hymns</div>
-                    <div class="playlist-meta">3 years ago • 10 songs</div>
-                </div>
-            </div>
-            <div class="playlist-card">
-                <div class="playlist-thumbnail">
-                    Biblical Songs
-                    <div class="playlist-count">11 music videos</div>
-                </div>
-                <div class="playlist-details">
-                    <div class="playlist-title">Biblical Songs</div>
-                    <div class="playlist-meta">4 years ago • 11 songs</div>
-                </div>
-            </div>
-            <div class="playlist-card">
-                <div class="playlist-thumbnail">
-                    Praise Overflow
-                    <div class="playlist-count">10 music videos</div>
-                </div>
-                <div class="playlist-details">
-                    <div class="playlist-title">Praise Overflow</div>
-                    <div class="playlist-meta">5 years ago • 10 songs</div>
-                </div>
-            </div>
-            <div class="playlist-card">
-                <div class="playlist-thumbnail">
-                    Savior
-                    <div class="playlist-count">7 music videos</div>
-                </div>
-                <div class="playlist-details">
-                    <div class="playlist-title">First Album - Savior</div>
-                    <div class="playlist-meta">6 years ago • 7 songs • Debut album</div>
-                </div>
-            </div>
-            <div class="playlist-card">
-                <div class="playlist-thumbnail">
-                    Savior
-                    <div class="playlist-count">76 music videos</div>
-                </div>
-                <div class="playlist-details">
-                    <div class="playlist-title">music collaborations </div>
-                    <div class="playlist-meta">76 music collaboration videos</div>
-                </div>
-            </div><div class="playlist-card">
-                <div class="playlist-thumbnail">
-                    gospel shows and concerts
-                    <div class="playlist-count"> 83 videos</div>
-                </div>
-                <div class="playlist-details">
-                    <div class="playlist-title">concerts and shows </div>
-                    <div class="playlist-meta">• concerts and shows</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-     About Section 
-    <div id="about" class="content-section">
-        <div class="about-content">
-            <div class="section-title">About Kabage Kamau</div>
-            <div class="about-description">
-                <p>Welcome to the official YouTube channel of Kabage Kamau, a devoted Gospel music minister, singer, songwriter, and recording artist. Through powerful worship and praise songs, Kabage spreads the transformative message of Jesus Christ to millions around the world.</p>
-                <br>
-                <p>With over 48 million subscribers and hundreds of millions of views, Kabage's ministry reaches hearts across the globe with biblical truths, inspiring testimonies, and soul-stirring melodies that bring people closer to God.</p>
-                <br>
-                <p>From his debut album "Savior" to his latest releases in "New Beginnings," every song is crafted to glorify God and minister to souls seeking hope, healing, and salvation through Jesus Christ.</p>
             </div>
 
-            <div class="section-title">Connect With Kabage Kamau</div>
-            <div class="social-media-grid">
-                <div class="social-card">
-                    <div class="social-icon">📷</div>
-                    <div class="social-name">Instagram</div>
-                    <div class="social-followers">101.8M</div>
-                    <div class="social-label">followers</div>
+            <div class="section-title">Recent uploads</div>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        I Believe in Christ Jesus
+                        <div class="video-duration">12:34</div>
+                    </div>
+                    <div class="video-details">
+                        <div class="video-title">I Believe in Christ Jesus</div>
+                        <div class="video-meta">77M views • 10 months ago</div>
+                    </div>
                 </div>
-                <div class="social-card">
-                    <div class="social-icon">📲</div>
-                    <div class="social-name">Facebook</div>
-                    <div class="social-followers">48.2M</div>
-                    <div class="social-label">followers</div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        The Cross of Christ
+                        <div class="video-duration">15:12</div>
+                    </div>
+                    <div class="video-details">
+                        <div class="video-title">The Cross of Christ</div>
+                        <div class="video-meta">155M views • 11 months ago</div>
+                    </div>
                 </div>
-                <div class="social-card">
-                    <div class="social-icon">💬</div>
-                    <div class="social-name">WhatsApp</div>
-                    <div class="social-followers">59M</div>
-                    <div class="social-label">followers</div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        Israel!!Israel!!Israel!
+                        <div class="video-duration">7:56</div>
+                    </div>
+                    <div class="video-details">
+                        <div class="video-title">Israel!!Israel!!Israel!</div>
+                        <div class="video-meta">20M views • 5 months ago</div>
+                    </div>
                 </div>
-                <div class="social-card">
-                    <div class="social-icon">✈️</div>
-                    <div class="social-name">Telegram</div>
-                    <div class="social-followers">32.2M</div>
-                    <div class="social-label">followers</div>
-                </div>
-                <div class="social-card">
-                    <div class="social-icon">🎵</div>
-                    <div class="social-name">Spotify</div>
-                    <div class="social-followers">67.9M</div>
-                    <div class="social-label">followers</div>
-                </div>
-                <div class="social-card">
-                    <div class="social-icon">🍏</div>
-                    <div class="social-name">Apple Music</div>
-                    <div class="social-followers">61.2M</div>
-                    <div class="social-label">followers</div>
-                </div>
-                <div class="social-card">
-                    <div class="social-icon">🐦</div>
-                    <div class="social-name">Twitter</div>
-                    <div class="social-followers">84.8M</div>
-                    <div class="social-label">followers</div>
-                </div>
-                <div class="social-card">
-                    <div class="social-icon">🎬</div>
-                    <div class="social-name">TikTok</div>
-                    <div class="social-followers">115.9M</div>
-                    <div class="social-label">followers</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-     Collaborations Section 
-    <div id="collaborations" class="content-section">
-        <div class="section-title">Collaborations</div>
-        
-         Nathaniel Bassey Collaborations 
-        <div class="section-title" style="font-size: 18px; margin-top: 32px;">Nathaniel Bassey</div>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-thumbnail">The Solid Rock<div class="video-duration">14:21</div></div>
-                <div class="video-details">
-                    <div class="video-title">The Solid Rock (ft. Nathaniel Bassey)</div>
-                    <div class="video-meta">249,293,290 views • 4 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Forever Reign<div class="video-duration">10:05</div></div>
-                <div class="video-details">
-                    <div class="video-title">Forever Reign (ft. Nathaniel Bassey)</div>
-                    <div class="video-meta">178,550,120 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Heavens Harmony<div class="video-duration">12:30</div></div>
-                <div class="video-details">
-                    <div class="video-title">Heavens Harmony (ft. Nathaniel Bassey)</div>
-                    <div class="video-meta">218,900,050 views • 1 year ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Mighty God, Our Refuge<div class="video-duration">15:45</div></div>
-                <div class="video-details">
-                    <div class="video-title">Mighty God, Our Refuge (ft. Nathaniel Bassey)</div>
-                    <div class="video-meta">209,123,450 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">In Awe of Your Presence<div class="video-duration">18:20</div></div>
-                <div class="video-details">
-                    <div class="video-title">In Awe of Your Presence (ft. Nathaniel Bassey)</div>
-                    <div class="video-meta">194,765,980 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Breath of Heaven<div class="video-duration">16:10</div></div>
-                <div class="video-details">
-                    <div class="video-title">Breath of Heaven (ft. Nathaniel Bassey)</div>
-                    <div class="video-meta">274,321,870 views • 4 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Yahwehs Anthem<div class="video-duration">20:15</div></div>
-                <div class="video-details">
-                    <div class="video-title">Yahwehs Anthem (ft. Nathaniel Bassey)</div>
-                    <div class="video-meta">289,876,540 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Jehovah Nissi<div class="video-duration">17:30</div></div>
-                <div class="video-details">
-                    <div class="video-title">Jehovah Nissi (ft. Nathaniel Bassey)</div>
-                    <div class="video-meta">123,456,789 views • 4 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">El Shaddai<div class="video-duration">19:45</div></div>
-                <div class="video-details">
-                    <div class="video-title">El Shaddai (ft. Nathaniel Bassey)</div>
-                    <div class="video-meta">189,123,456 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Adonai Lives<div class="video-duration">14:20</div></div>
-                <div class="video-details">
-                    <div class="video-title">Adonai Lives (ft. Nathaniel Bassey)</div>
-                    <div class="video-meta">150,987,654 views • 1 year ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">I Am Redeemed<div class="video-duration">16:35</div></div>
-                <div class="video-details">
-                    <div class="video-title">I Am Redeemed (ft. Nathaniel Bassey)</div>
-                    <div class="video-meta">175,234,567 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Holy Lamb<div class="video-duration">13:50</div></div>
-                <div class="video-details">
-                    <div class="video-title">Holy Lamb (ft. Nathaniel Bassey)</div>
-                    <div class="video-meta">245,678,901 views • 1 year ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Grace Abounds<div class="video-duration">21:10</div></div>
-                <div class="video-details">
-                    <div class="video-title">Grace Abounds (ft. Nathaniel Bassey)</div>
-                    <div class="video-meta">180,543,210 views • 3 years ago</div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        John 3:16
+                        <div class="video-duration">19:08</div>
+                    </div>
+                    <div class="video-details">
+                        <div class="video-title">John 3:16</div>
+                        <div class="video-meta">101M views • 9 months ago</div>
+                    </div>
                 </div>
             </div>
         </div>
 
-         Chandler Moore Collaborations 
-        <div class="section-title" style="font-size: 18px; margin-top: 32px;">Chandler Moore</div>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-thumbnail">Open Heavens<div class="video-duration">15:30</div></div>
-                <div class="video-details">
-                    <div class="video-title">Open Heavens (ft. Chandler Moore)</div>
-                    <div class="video-meta">194,567,890 views • 1 year ago</div>
+        <!-- Videos section now contains only album songs, no collaborations -->
+        <div id="videos" class="content-section">
+            <div class="section-title">Videos</div>
+            <div class="video-grid">
+                <!-- Recent Releases -->
+                <div class="video-card">
+                    <div class="video-thumbnail">I Believe in Christ Jesus<div class="video-duration">12:34</div></div>
+                    <div class="video-details">
+                        <div class="video-title">I Believe in Christ Jesus</div>
+                        <div class="video-meta">77M views • 10 months ago</div>
+                    </div>
                 </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Sweet Surrender<div class="video-duration">12:45</div></div>
-                <div class="video-details">
-                    <div class="video-title">Sweet Surrender (ft. Chandler Moore)</div>
-                    <div class="video-meta">184,345,678 views • 2 years ago</div>
+                <div class="video-card">
+                    <div class="video-thumbnail">The Cross of Christ<div class="video-duration">15:12</div></div>
+                    <div class="video-details">
+                        <div class="video-title">The Cross of Christ</div>
+                        <div class="video-meta">155M views • 11 months ago</div>
+                    </div>
                 </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Jesus! Jesus! Jesus! Jesus! Jesus!<div class="video-duration">25:20</div></div>
-                <div class="video-details">
-                    <div class="video-title">Jesus! Jesus! Jesus! Jesus! Jesus! (ft. Chandler Moore) <span class="featured-badge">FEATURED</span></div>
-                    <div class="video-meta">1,014,901,234 views • 4 years ago</div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Israel!!Israel!!Israel!<div class="video-duration">7:56</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Israel!!Israel!!Israel!</div>
+                        <div class="video-meta">20M views • 5 months ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">John 3:16<div class="video-duration">19:08</div></div>
+                    <div class="video-details">
+                        <div class="video-title">John 3:16</div>
+                        <div class="video-meta">101M views • 9 months ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Parables of Jesus<div class="video-duration">8:22</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Parables of Jesus</div>
+                        <div class="video-meta">150M views • 3 months ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Jeremiah 29:11<div class="video-duration">22:01</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Jeremiah 29:11</div>
+                        <div class="video-meta">152M views • 11 months ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Sitakufa Bali Nitaishi<div class="video-duration">18:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Sitakufa Bali Nitaishi</div>
+                        <div class="video-meta">94M views • 1 year ago</div>
+                    </div>
+                </div>
+
+                <!-- Adding Sweet Sounds Album songs (1 year ago) -->
+                <div class="video-card">
+                    <div class="video-thumbnail">Sweet Melodies of Heaven<div class="video-duration">14:25</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Sweet Melodies of Heaven</div>
+                        <div class="video-meta">125M views • 1 year ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Harmony of Angels<div class="video-duration">16:40</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Harmony of Angels</div>
+                        <div class="video-meta">98M views • 1 year ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Divine Symphony<div class="video-duration">12:15</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Divine Symphony</div>
+                        <div class="video-meta">356M views • 1 year ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Sermon on the mount<div class="video-duration">18:50</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Sermon on the mount</div>
+                        <div class="video-meta">403M views • 1 year ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Blood of Jesus<div class="video-duration">11:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Blood of Jesus</div>
+                        <div class="video-meta">887M views • 1 year ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Nehemiah<div class="video-duration">10:05</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Nehemiah</div>
+                        <div class="video-meta">374M views • 1 year ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Sacred Sounds<div class="video-duration">15:20</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Sacred Sounds <span class="featured-badge">FEATURED</span></div>
+                        <div class="video-meta">312M views • 1 year ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Heavenly Harmonies<div class="video-duration">13:45</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Heavenly Harmonies</div>
+                        <div class="video-meta">145M views • 1 year ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Songs of Salvation<div class="video-duration">17:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Songs of Salvation</div>
+                        <div class="video-meta">189M views • 1 year ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail"> Miracles<div class="video-duration">19:15</div></div>
+                    <div class="video-details">
+                        <div class="video-title"> Miracles</div>
+                        <div class="video-meta">167M views • 1 year ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Blessings<div class="video-duration">14:55</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Blessings</div>
+                        <div class="video-meta">234M views • 1 year ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Sweet Sounds of Jesus<div class="video-duration">12:10</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Sweet Sounds of Jesus</div>
+                        <div class="video-meta">578M views • 1 year ago</div>
+                    </div>
+                </div>
+
+                <!-- Grace Melodies Album -->
+                <div class="video-card">
+                    <div class="video-thumbnail">Moses and Pharaoh<div class="video-duration">7:10</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Moses and Pharaoh</div>
+                        <div class="video-meta">132M views • 2 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Give Your Life to Jesus<div class="video-duration">14:05</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Give Your Life to Jesus</div>
+                        <div class="video-meta">83M views • 2 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Love from God<div class="video-duration">11:58</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Love from God</div>
+                        <div class="video-meta">88M views • 2 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Jesus Christ<div class="video-duration">25:00</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Jesus Christ <span class="featured-badge">FEATURED</span></div>
+                        <div class="video-meta">1.3B views • 2 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Noah and His Ark<div class="video-duration">16:40</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Noah and His Ark</div>
+                        <div class="video-meta">142M views • 2 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">My Kenya, My Homeland<div class="video-duration">13:20</div></div>
+                    <div class="video-details">
+                        <div class="video-title">My Kenya, My Homeland, My Country</div>
+                        <div class="video-meta">272M views • 2 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">The power of your name<div class="video-duration">18:50</div></div>
+                    <div class="video-details">
+                        <div class="video-title">The power of your name</div>
+                        <div class="video-meta">813M views • 2 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Our God is a Healer<div class="video-duration">21:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Our God is a Healer</div>
+                        <div class="video-meta">188M views • 2 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Jesus Christ on the cross<div class="video-duration">24:45</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Jesus Christ on the cross <span class="featured-badge">FEATURED</span></div>
+                        <div class="video-meta">2.2B views • 2 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Let thy Kingdom come<div class="video-duration">10:15</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Let thy Kingdom come</div>
+                        <div class="video-meta">142M views • 2 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">I love kenya<div class="video-duration">9:50</div></div>
+                    <div class="video-details">
+                        <div class="video-title">I love kenya</div>
+                        <div class="video-meta">412M views • 2 years ago</div>
+                    </div>
+                </div>
+
+                <!-- Divine Hymns Album -->
+                <div class="video-card">
+                    <div class="video-thumbnail">Holy Anointing<div class="video-duration">13:10</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Holy Anointing</div>
+                        <div class="video-meta">155M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Tom Mboya, Jomo Kenyatta<div class="video-duration">18:00</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Tom Mboya, Jomo Kenyatta, Dedan Kimathi, Mwai Kibaki</div>
+                        <div class="video-meta">313M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Abraham's Faith<div class="video-duration">9:45</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Abraham's Faith</div>
+                        <div class="video-meta">193M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Revival in the Kenyan Homeland<div class="video-duration">15:20</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Revival in the Kenyan Homeland</div>
+                        <div class="video-meta">124M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">The 12 Apostles of Jesus<div class="video-duration">20:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">The 12 Apostles of Jesus</div>
+                        <div class="video-meta">212M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">The Last Supper<div class="video-duration">11:05</div></div>
+                    <div class="video-details">
+                        <div class="video-title">The Last Supper</div>
+                        <div class="video-meta">132M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Holy Ghost Fire<div class="video-duration">23:00</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Holy Ghost Fire</div>
+                        <div class="video-meta">177M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Psalm 46:10<div class="video-duration">7:40</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Psalm 46:10</div>
+                        <div class="video-meta">138M views • 3 years ago</div>
+                    </div>
+                </div>
+
+                <!-- Biblical Songs Album -->
+                <div class="video-card">
+                    <div class="video-thumbnail">Joseph the Dreamer<div class="video-duration">12:12</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Joseph the Dreamer</div>
+                        <div class="video-meta">71M views • 4 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Adam and Eve<div class="video-duration">15:35</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Adam and Eve</div>
+                        <div class="video-meta">44M views • 4 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Praise Jesus<div class="video-duration">9:10</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Praise Jesus</div>
+                        <div class="video-meta">66M views • 4 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">James and John<div class="video-duration">21:40</div></div>
+                    <div class="video-details">
+                        <div class="video-title">James and John (Sons of Thunder)</div>
+                        <div class="video-meta">19M views • 4 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Jesus and Lazarus<div class="video-duration">17:00</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Jesus and Lazarus</div>
+                        <div class="video-meta">79M views • 4 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Tongues of Fire<div class="video-duration">24:00</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Tongues of Fire</div>
+                        <div class="video-meta">239M views • 4 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Miracles from Heaven<div class="video-duration">10:55</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Miracles from Heaven</div>
+                        <div class="video-meta">110M views • 4 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Jesus christ !!Jesus Christ !!<div class="video-duration">19:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Jesus christ !!Jesus Christ !! Jesus Christ!! <span class="featured-badge">FEATURED</span></div>
+                        <div class="video-meta">1.4B views • 4 years ago</div>
+                    </div>
+                </div>
+
+                <!-- Praise Overflow Album -->
+                <div class="video-card">
+                    <div class="video-thumbnail">Walls of Jericho<div class="video-duration">12:15</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Walls of Jericho</div>
+                        <div class="video-meta">75M views • 5 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">David's Harp<div class="video-duration">8:40</div></div>
+                    <div class="video-details">
+                        <div class="video-title">David's Harp</div>
+                        <div class="video-meta">118M views • 5 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Let it all Work Out Jesus<div class="video-duration">22:00</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Let it all Work Out Jesus <span class="featured-badge">HIT SONG</span></div>
+                        <div class="video-meta">2.8B views • 5 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">God Can Do<div class="video-duration">15:55</div></div>
+                    <div class="video-details">
+                        <div class="video-title">God Can Do</div>
+                        <div class="video-meta">253M views • 5 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Resurrection Power<div class="video-duration">14:20</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Resurrection Power</div>
+                        <div class="video-meta">197M views • 5 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Isaiah, Jeremiah, Elijah<div class="video-duration">16:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Isaiah, Jeremiah, Elijah and Elisha</div>
+                        <div class="video-meta">149M views • 5 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Chosen and Anointed<div class="video-duration">9:50</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Chosen and Anointed</div>
+                        <div class="video-meta">93M views • 5 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">My prayer to jesus<div class="video-duration">18:10</div></div>
+                    <div class="video-details">
+                        <div class="video-title">My prayer to jesus</div>
+                        <div class="video-meta">397M views • 5 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">The story of Job<div class="video-duration">11:00</div></div>
+                    <div class="video-details">
+                        <div class="video-title">The story of Job</div>
+                        <div class="video-meta">189M views • 5 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Joy in Jesus<div class="video-duration">20:25</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Joy in Jesus</div>
+                        <div class="video-meta">203M views • 5 years ago</div>
+                    </div>
+                </div>
+
+                <!-- First Album - Savior -->
+                <div class="video-card">
+                    <div class="video-thumbnail">Jezebel spirit<div class="video-duration">10:05</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Jezebel spirit</div>
+                        <div class="video-meta">69M views • 6 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Jonah in nineveh<div class="video-duration">14:50</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Jonah in nineveh</div>
+                        <div class="video-meta">54M views • 6 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Praise<div class="video-duration">23:15</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Praise</div>
+                        <div class="video-meta">94M views • 6 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">nelson mandela and mwai kibaki<div class="video-duration">11:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">nelson mandela and mwai kibaki</div>
+                        <div class="video-meta">52M views • 6 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">David versus Goliath<div class="video-duration">16:55</div></div>
+                    <div class="video-details">
+                        <div class="video-title">David versus Goliath</div>
+                        <div class="video-meta">159M views • 6 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Joshua,Samuel,Samson<div class="video-duration">20:45</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Joshua,Samuel,Samson, and Gideon</div>
+                        <div class="video-meta">173M views • 6 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Jesus christ our saviour<div class="video-duration">25:00</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Jesus christ our saviour <span class="featured-badge">MY FIRST SONG</span></div>
+                        <div class="video-meta">759M views • 6 years ago</div>
+                    </div>
                 </div>
             </div>
         </div>
 
-         Hillsong Worship Collaborations 
-        <div class="section-title" style="font-size: 18px; margin-top: 32px;">Hillsong Worship</div>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-thumbnail">Crown of Glory<div class="video-duration">16:10</div></div>
-                <div class="video-details">
-                    <div class="video-title">Crown of Glory (ft. Hillsong Worship)</div>
-                    <div class="video-meta">253,456,789 views • 5 years ago</div>
+        <!-- Shorts Section -->
+        <div id="shorts" class="content-section">
+            <div class="section-title">Shorts</div>
+            <p style="color: #aaa; text-align: center; padding: 40px;">No shorts available</p>
+        </div>
+
+        <!-- Live Section -->
+        <div id="live" class="content-section">
+            <div class="section-title">Live</div>
+            <p style="color: #aaa; text-align: center; padding: 40px;">No live streams available</p>
+        </div>
+
+        <!-- Playlists Section -->
+        <div id="playlists" class="content-section">
+            <div class="section-title">Created playlists</div>
+            <div class="playlist-grid">
+                <div class="playlist-card">
+                    <div class="playlist-thumbnail">
+                        New Beginnings
+                        <div class="playlist-count">9 videos</div>
+                    </div>
+                    <div class="playlist-details">
+                        <div class="playlist-title">New Beginnings (Recent Releases)</div>
+                        <div class="playlist-meta">Latest gospel songs • Updated recently</div>
+                    </div>
                 </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Sovereign Lord<div class="video-duration">14:25</div></div>
-                <div class="video-details">
-                    <div class="video-title">Sovereign Lord (ft. Hillsong Worship)</div>
-                    <div class="video-meta">189,123,456 views • 4 years ago</div>
+                <div class="playlist-card">
+                    <div class="playlist-thumbnail">
+                        Sweet sounds
+                        <div class="playlist-count">12 videos</div>
+                    </div>
+                    <div class="playlist-details">
+                        <div class="playlist-title">Sweet sounds</div>
+                        <div class="playlist-meta">1 year ago • 12 songs</div>
+                    </div>
                 </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Living Hope<div class="video-duration">12:45</div></div>
-                <div class="video-details">
-                    <div class="video-title">Living Hope (ft. Hillsong Worship)</div>
-                    <div class="video-meta">305,987,654 views • 3 years ago</div>
+                <div class="playlist-card">
+                    <div class="playlist-thumbnail">
+                        Grace Melodies
+                        <div class="playlist-count">12 videos</div>
+                    </div>
+                    <div class="playlist-details">
+                        <div class="playlist-title">Grace Melodies</div>
+                        <div class="playlist-meta">2 years ago • 12 songs</div>
+                    </div>
                 </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Faithful Forever<div class="video-duration">18:30</div></div>
-                <div class="video-details">
-                    <div class="video-title">Faithful Forever (ft. Hillsong Worship)</div>
-                    <div class="video-meta">275,234,567 views • 5 years ago</div>
+                <div class="playlist-card">
+                    <div class="playlist-thumbnail">
+                        Divine Hymns
+                        <div class="playlist-count">8 videos</div>
+                    </div>
+                    <div class="playlist-details">
+                        <div class="playlist-title">Divine Hymns</div>
+                        <div class="playlist-meta">3 years ago • 8 songs</div>
+                    </div>
                 </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Holy Presence<div class="video-duration">13:15</div></div>
-                <div class="video-details">
-                    <div class="video-title">Holy Presence (ft. Hillsong Worship)</div>
-                    <div class="video-meta">149,876,543 views • 4 years ago</div>
+                <div class="playlist-card">
+                    <div class="playlist-thumbnail">
+                        Biblical Songs
+                        <div class="playlist-count">8 videos</div>
+                    </div>
+                    <div class="playlist-details">
+                        <div class="playlist-title">Biblical Songs</div>
+                        <div class="playlist-meta">4 years ago • 8 songs</div>
+                    </div>
                 </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Risen Savior<div class="video-duration">20:40</div></div>
-                <div class="video-details">
-                    <div class="video-title">Risen Savior (ft. Hillsong Worship)</div>
-                    <div class="video-meta">363,456,789 views • 3 years ago</div>
+                <div class="playlist-card">
+                    <div class="playlist-thumbnail">
+                        Praise Overflow
+                        <div class="playlist-count">10 videos</div>
+                    </div>
+                    <div class="playlist-details">
+                        <div class="playlist-title">Praise Overflow</div>
+                        <div class="playlist-meta">5 years ago • 10 songs</div>
+                    </div>
+                </div>
+                <div class="playlist-card">
+                    <div class="playlist-thumbnail">
+                        Savior
+                        <div class="playlist-count">7 videos</div>
+                    </div>
+                    <div class="playlist-details">
+                        <div class="playlist-title">First Album - Savior</div>
+                        <div class="playlist-meta">6 years ago • 7 songs • Debut album</div>
+                    </div>
+                </div>
+                <!-- Fixed missing closing div and corrected collaborations playlist structure -->
+                <div class="playlist-card">
+                    <div class="playlist-thumbnail">
+                        Collaborations
+                        <div class="playlist-count">76 videos</div>
+                    </div>
+                    <div class="playlist-details">
+                        <div class="playlist-title">Collaborations</div>
+                        <div class="playlist-meta">• 76 songs</div>
+                    </div>
+                </div>
+                <div class="playlist-card">
+                    <div class="playlist-thumbnail">
+                        Gospel concerts and shows
+                        <div class="playlist-count">102 videos</div>
+                    </div>
+                    <div class="playlist-details">
+                        <div class="playlist-title">Gospel concerts and shows</div>
+                        <div class="playlist-meta">• 102 videos</div>
+                    </div>
+                </div>
+                <!-- CHANGE: Adding YouTube shorts and Live stream videos playlist cards -->
+                <div class="playlist-card">
+                    <div class="playlist-thumbnail">
+                        youtube shorts
+                        <div class="playlist-count">53 videos</div>
+                    </div>
+                    <div class="playlist-details">
+                        <div class="playlist-title">Youtube shorts</div>
+                        <div class="playlist-meta">53 videos</div>
+                    </div>
+                </div>
+                <div class="playlist-card">
+                    <div class="playlist-thumbnail">
+                        Live stream videos
+                        <div class="playlist-count">8 videos</div>
+                    </div>
+                    <div class="playlist-details">
+                        <div class="playlist-title">live stream videos</div>
+                        <div class="playlist-meta">• 8 videos</div>
+                    </div>
                 </div>
             </div>
         </div>
 
-         Sarah K Collaborations 
-        <div class="section-title" style="font-size: 18px; margin-top: 32px;">Sarah K</div>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-thumbnail">Imani kwa Yesu<div class="video-duration">16:20</div></div>
-                <div class="video-details">
-                    <div class="video-title">Imani kwa Yesu (ft. Sarah K)</div>
-                    <div class="video-meta">193,309,000 views • 5 years ago</div>
+        <!-- New Collaborations section with all songs from pasted text -->
+        <div id="collaborations" class="content-section">
+            <div class="section-title">Collaborations</div>
+            
+            <!-- Nathaniel Bassey Collaborations -->
+            <div class="artist-header">Nathaniel Bassey</div>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">The Solid Rock<div class="video-duration">14:21</div></div>
+                    <div class="video-details">
+                        <div class="video-title">The Solid Rock (ft. Nathaniel Bassey)</div>
+                        <div class="video-meta">249M views • 4 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Forever Reign<div class="video-duration">10:05</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Forever Reign (ft. Nathaniel Bassey)</div>
+                        <div class="video-meta">178M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Heavens Harmony<div class="video-duration">12:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Heavens Harmony (ft. Nathaniel Bassey)</div>
+                        <div class="video-meta">218M views • 1 year ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Mighty God, Our Refuge<div class="video-duration">15:45</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Mighty God, Our Refuge (ft. Nathaniel Bassey)</div>
+                        <div class="video-meta">209M views • 2 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">In Awe of Your Presence<div class="video-duration">18:20</div></div>
+                    <div class="video-details">
+                        <div class="video-title">In Awe of Your Presence (ft. Nathaniel Bassey)</div>
+                        <div class="video-meta">194M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Breath of Heaven<div class="video-duration">16:10</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Breath of Heaven (ft. Nathaniel Bassey)</div>
+                        <div class="video-meta">274M views • 4 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Yahwehs Anthem<div class="video-duration">20:15</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Yahwehs Anthem (ft. Nathaniel Bassey)</div>
+                        <div class="video-meta">289M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Jehovah Nissi<div class="video-duration">17:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Jehovah Nissi (ft. Nathaniel Bassey)</div>
+                        <div class="video-meta">123M views • 4 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">El Shaddai<div class="video-duration">19:45</div></div>
+                    <div class="video-details">
+                        <div class="video-title">El Shaddai (ft. Nathaniel Bassey)</div>
+                        <div class="video-meta">189M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Adonai Lives<div class="video-duration">14:20</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Adonai Lives (ft. Nathaniel Bassey)</div>
+                        <div class="video-meta">150M views • 1 year ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">I Am Redeemed<div class="video-duration">16:35</div></div>
+                    <div class="video-details">
+                        <div class="video-title">I Am Redeemed (ft. Nathaniel Bassey)</div>
+                        <div class="video-meta">175M views • 2 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Holy Lamb<div class="video-duration">13:50</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Holy Lamb (ft. Nathaniel Bassey)</div>
+                        <div class="video-meta">245M views • 1 year ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Grace Abounds<div class="video-duration">21:10</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Grace Abounds (ft. Nathaniel Bassey)</div>
+                        <div class="video-meta">180M views • 3 years ago</div>
+                    </div>
                 </div>
             </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Kenya Yetu (Our Kenya)<div class="video-duration">12:10</div></div>
-                <div class="video-details">
-                    <div class="video-title">Kenya Yetu (Our Kenya) (ft. Sarah K)</div>
-                    <div class="video-meta">55,901,234 views • 4 years ago</div>
+
+            <!-- Chandler Moore Collaborations -->
+            <div class="artist-header">Chandler Moore</div>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">Open Heavens<div class="video-duration">15:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Open Heavens (ft. Chandler Moore)</div>
+                        <div class="video-meta">194M views • 1 year ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Sweet Surrender<div class="video-duration">12:45</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Sweet Surrender (ft. Chandler Moore)</div>
+                        <div class="video-meta">184M views • 2 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Jesus! Jesus! Jesus! Jesus! Jesus!<div class="video-duration">25:20</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Jesus! Jesus! Jesus! Jesus! Jesus! (ft. Chandler Moore) <span class="featured-badge">FEATURED</span></div>
+                        <div class="video-meta">1.0B views • 4 years ago</div>
+                    </div>
                 </div>
             </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Uweza Wake (His Power)<div class="video-duration">14:35</div></div>
-                <div class="video-details">
-                    <div class="video-title">Uweza Wake (His Power) (ft. Sarah K)</div>
-                    <div class="video-meta">227,876,543 views • 3 years ago</div>
+
+            <!-- Hillsong Worship Collaborations -->
+            <div class="artist-header">Hillsong Worship</div>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">Crown of Glory<div class="video-duration">16:10</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Crown of Glory (ft. Hillsong Worship)</div>
+                        <div class="video-meta">253M views • 5 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Sovereign Lord<div class="video-duration">14:25</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Sovereign Lord (ft. Hillsong Worship)</div>
+                        <div class="video-meta">189M views • 4 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Living Hope<div class="video-duration">12:45</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Living Hope (ft. Hillsong Worship)</div>
+                        <div class="video-meta">305M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Faithful Forever<div class="video-duration">18:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Faithful Forever (ft. Hillsong Worship)</div>
+                        <div class="video-meta">275M views • 5 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Holy Presence<div class="video-duration">13:15</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Holy Presence (ft. Hillsong Worship)</div>
+                        <div class="video-meta">149M views • 4 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Risen Savior<div class="video-duration">20:40</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Risen Savior (ft. Hillsong Worship)</div>
+                        <div class="video-meta">363M views • 3 years ago</div>
+                    </div>
                 </div>
             </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Shukrani (Gratitude)<div class="video-duration">11:45</div></div>
-                <div class="video-details">
-                    <div class="video-title">Shukrani (Gratitude) (ft. Sarah K)</div>
-                    <div class="video-meta">104,765,432 views • 5 years ago</div>
+
+            <!-- Sarah K Collaborations -->
+            <div class="artist-header">Sarah K</div>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">Imani kwa Yesu<div class="video-duration">16:20</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Imani kwa Yesu (ft. Sarah K)</div>
+                        <div class="video-meta">193M views • 5 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Kenya Yetu (Our Kenya)<div class="video-duration">12:10</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Kenya Yetu (Our Kenya) (ft. Sarah K)</div>
+                        <div class="video-meta">55M views • 4 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Uweza Wake (His Power)<div class="video-duration">14:35</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Uweza Wake (His Power) (ft. Sarah K)</div>
+                        <div class="video-meta">227M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Shukrani (Gratitude)<div class="video-duration">11:45</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Shukrani (Gratitude) (ft. Sarah K)</div>
+                        <div class="video-meta">104M views • 5 years ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Moses Bliss Collaborations -->
+            <div class="artist-header">Moses Bliss</div>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">Blessed Redeemer<div class="video-duration">15:20</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Blessed Redeemer (ft. Moses Bliss)</div>
+                        <div class="video-meta">93M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Eternal Hope<div class="video-duration">12:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Eternal Hope (ft. Moses Bliss)</div>
+                        <div class="video-meta">78M views • 2 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Divine Mercy<div class="video-duration">17:15</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Divine Mercy (ft. Moses Bliss)</div>
+                        <div class="video-meta">105M views • 1 year ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Faithful King<div class="video-duration">14:40</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Faithful King (ft. Moses Bliss)</div>
+                        <div class="video-meta">85M views • 2 years ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tasha Cobbs Collaborations -->
+            <div class="artist-header">Tasha Cobbs</div>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">Jesus heals<div class="video-duration">21:00</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Jesus heals (ft. Tasha Cobbs)</div>
+                        <div class="video-meta">269M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Overflowing Joy<div class="video-duration">16:25</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Overflowing Joy (ft. Tasha Cobbs)</div>
+                        <div class="video-meta">174M views • 4 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Voice of Truth<div class="video-duration">23:55</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Voice of Truth (ft. Tasha Cobbs)</div>
+                        <div class="video-meta">494M views • 2 years ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cece Winans Collaborations -->
+            <div class="artist-header">Cece Winans</div>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">King of Glory<div class="video-duration">17:00</div></div>
+                    <div class="video-details">
+                        <div class="video-title">King of Glory (ft. Cece Winans)</div>
+                        <div class="video-meta">1.1B views • 2 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">The Risen King Jesus<div class="video-duration">25:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">The Risen King Jesus (ft. Cece Winans)</div>
+                        <div class="video-meta">1.5B views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Salvation in Jesus<div class="video-duration">19:45</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Salvation in Jesus (ft. Cece Winans)</div>
+                        <div class="video-meta">1.3B views • 5 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Jesus Never fails<div class="video-duration">22:10</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Jesus Never fails (ft. Cece Winans)</div>
+                        <div class="video-meta">1.2B views • 4 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Jesus Christ<div class="video-duration">18:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Jesus Christ (ft. Cece Winans)</div>
+                        <div class="video-meta">1.7B views • 1 year ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Our fortress is in Jesus Christ<div class="video-duration">24:15</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Our fortress is in Jesus Christ (ft. Cece Winans)</div>
+                        <div class="video-meta">1.8B views • 4 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Jesus christ my Lord<div class="video-duration">20:45</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Jesus christ my Lord (ft. Cece Winans)</div>
+                        <div class="video-meta">1.5B views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Everlasting Arms<div class="video-duration">16:20</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Everlasting Arms (ft. Cece Winans)</div>
+                        <div class="video-meta">1.0B views • 2 years ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mercy Masika Collaborations -->
+            <div class="artist-header">Mercy Masika</div>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">Nafsi Yangu Inakuabudu<div class="video-duration">15:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Nafsi Yangu Inakuabudu (My Soul Worships You) (ft. Mercy Masika)</div>
+                        <div class="video-meta">79M views • 5 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Neema Ya Ajabu<div class="video-duration">13:20</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Neema Ya Ajabu (Amazing Grace) (ft. Mercy Masika)</div>
+                        <div class="video-meta">64M views • 4 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Sifa Zako<div class="video-duration">17:10</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Sifa Zako (Your Praises) (ft. Mercy Masika)</div>
+                        <div class="video-meta">144M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Mungu Wangu Wa Ajabu<div class="video-duration">14:45</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Mungu Wangu Wa Ajabu (My Wonderful God) (ft. Mercy Masika)</div>
+                        <div class="video-meta">97M views • 2 years ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brandon Lake Collaborations -->
+            <div class="artist-header">Brandon Lake</div>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">Jehovah<div class="video-duration">20:25</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Jehovah (ft. Brandon Lake)</div>
+                        <div class="video-meta">230M views • 2 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Jesus Christ in Galilee<div class="video-duration">22:15</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Jesus Christ in Galilee (ft. Brandon Lake)</div>
+                        <div class="video-meta">320M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Praise Adonai<div class="video-duration">19:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Praise Adonai (ft. Brandon Lake)</div>
+                        <div class="video-meta">309M views • 4 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Redeemer Lives<div class="video-duration">18:20</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Redeemer Lives (ft. Brandon Lake)</div>
+                        <div class="video-meta">369M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Holy Ground<div class="video-duration">24:10</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Holy Ground (ft. Brandon Lake)</div>
+                        <div class="video-meta">619M views • 2 years ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Naomi Raine Collaborations -->
+            <div class="artist-header">Naomi Raine</div>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">Echoes of Grace<div class="video-duration">16:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Echoes of Grace (ft. Naomi Raine)</div>
+                        <div class="video-meta">289M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Unfailing Love<div class="video-duration">19:15</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Unfailing Love (ft. Naomi Raine)</div>
+                        <div class="video-meta">359M views • 2 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">New Every Morning<div class="video-duration">14:25</div></div>
+                    <div class="video-details">
+                        <div class="video-title">New Every Morning (ft. Naomi Raine)</div>
+                        <div class="video-meta">89M views • 4 years ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mercy Chinwo Collaborations -->
+            <div class="artist-header">Mercy Chinwo</div>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">Covenant Keeper<div class="video-duration">13:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Covenant Keeper (ft. Mercy Chinwo)</div>
+                        <div class="video-meta">279M views • 5 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Great Deliverer<div class="video-duration">10:10</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Great Deliverer (ft. Mercy Chinwo)</div>
+                        <div class="video-meta">189M views • 4 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Spirit of Revival<div class="video-duration">17:45</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Spirit of Revival (ft. Mercy Chinwo)</div>
+                        <div class="video-meta">99M views • 3 years ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Size 8 Reborn Collaborations -->
+            <div class="artist-header">Size 8 Reborn</div>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">The lion of Judah<div class="video-duration">17:25</div></div>
+                    <div class="video-details">
+                        <div class="video-title">The lion of Judah (ft. Size 8 Reborn)</div>
+                        <div class="video-meta">283M views • 2 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Matunda<div class="video-duration">12:20</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Matunda (ft. Size 8 Reborn)</div>
+                        <div class="video-meta">89M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Pale Pale<div class="video-duration">15:10</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Pale Pale (ft. Size 8 Reborn)</div>
+                        <div class="video-meta">112M views • 4 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Jehovah Elohim<div class="video-duration">18:35</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Jehovah Elohim (ft. Size 8 Reborn)</div>
+                        <div class="video-meta">195M views • 2 years ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paul Clement Collaborations -->
+            <div class="artist-header">Paul Clement</div>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">Steadfast Love<div class="video-duration">16:15</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Steadfast Love (ft. Paul Clement)</div>
+                        <div class="video-meta">73M views • 2 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Endless Grace<div class="video-duration">14:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Endless Grace (ft. Paul Clement)</div>
+                        <div class="video-meta">119M views • 1 year ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Israel Mbonyi Collaborations -->
+            <div class="artist-header">Israel Mbonyi</div>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">Halleluya<div class="video-duration">20:15</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Halleluya (ft. Israel Mbonyi)</div>
+                        <div class="video-meta">56M views • 1 year ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Neema Yako<div class="video-duration">15:40</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Neema Yako (Your Grace) (ft. Israel Mbonyi)</div>
+                        <div class="video-meta">63M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Mungu Wangu<div class="video-duration">17:25</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Mungu Wangu (My God) (ft. Israel Mbonyi)</div>
+                        <div class="video-meta">89M views • 2 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Furaha Yangu<div class="video-duration">13:50</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Furaha Yangu (My Joy) (ft. Israel Mbonyi)</div>
+                        <div class="video-meta">75M views • 1 year ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Forrest Frank Collaborations -->
+            <div class="artist-header">Forrest Frank</div>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">The Lord's Goodness<div class="video-duration">3:00</div></div>
+                    <div class="video-details">
+                        <div class="video-title">The Lord's Goodness (ft. Forrest Frank)</div>
+                        <div class="video-meta">482M views • 1 year ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Praise The Lord<div class="video-duration">4:15</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Praise The Lord (ft. Forrest Frank)</div>
+                        <div class="video-meta">271M views • 1 year ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">My Testimony<div class="video-duration">5:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">My Testimony (ft. Forrest Frank)</div>
+                        <div class="video-meta">212M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">He Will Provide<div class="video-duration">7:20</div></div>
+                    <div class="video-details">
+                        <div class="video-title">He Will Provide (ft. Forrest Frank)</div>
+                        <div class="video-meta">543M views • 2 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">I Will Worship You<div class="video-duration">6:45</div></div>
+                    <div class="video-details">
+                        <div class="video-title">I Will Worship You (ft. Forrest Frank)</div>
+                        <div class="video-meta">48M views • 4 years ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sinanch Collaborations -->
+            <div class="artist-header">Sinanch</div>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">The Blood That Saves<div class="video-duration">18:20</div></div>
+                    <div class="video-details">
+                        <div class="video-title">The Blood That Saves (ft. Sinanch)</div>
+                        <div class="video-meta">453M views • 4 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Holy, Holy, Holy<div class="video-duration">21:15</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Holy, Holy, Holy (ft. Sinanch)</div>
+                        <div class="video-meta">384M views • 5 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">Jesus Is Coming<div class="video-duration">19:30</div></div>
+                    <div class="video-details">
+                        <div class="video-title">Jesus Is Coming (ft. Sinanch)</div>
+                        <div class="video-meta">398M views • 5 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">My Soul Is At Rest<div class="video-duration">16:45</div></div>
+                    <div class="video-details">
+                        <div class="video-title">My Soul Is At Rest (ft. Sinanch)</div>
+                        <div class="video-meta">219M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">God Is My Refuge<div class="video-duration">17:20</div></div>
+                    <div class="video-details">
+                        <div class="video-title">God Is My Refuge (ft. Sinanch)</div>
+                        <div class="video-meta">342M views • 3 years ago</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">You Are My Strength<div class="video-duration">15:10</div></div>
+                    <div class="video-details">
+                        <div class="video-title">You Are My Strength (ft. Sinanch)</div>
+                        <div class="video-meta">412M views • 1 year ago</div>
+                    </div>
                 </div>
             </div>
         </div>
 
-         Moses Bliss Collaborations 
-        <div class="section-title" style="font-size: 18px; margin-top: 32px;">Moses Bliss</div>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-thumbnail">Blessed Redeemer<div class="video-duration">15:20</div></div>
-                <div class="video-details">
-                    <div class="video-title">Blessed Redeemer (ft. Moses Bliss)</div>
-                    <div class="video-meta">93,456,789 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Eternal Hope<div class="video-duration">12:30</div></div>
-                <div class="video-details">
-                    <div class="video-title">Eternal Hope (ft. Moses Bliss)</div>
-                    <div class="video-meta">78,123,456 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Divine Mercy<div class="video-duration">17:15</div></div>
-                <div class="video-details">
-                    <div class="video-title">Divine Mercy (ft. Moses Bliss)</div>
-                    <div class="video-meta">105,987,654 views • 1 year ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Faithful King<div class="video-duration">14:40</div></div>
-                <div class="video-details">
-                    <div class="video-title">Faithful King (ft. Moses Bliss)</div>
-                    <div class="video-meta">85,234,567 views • 2 years ago</div>
-                </div>
-            </div>
+        <!-- Community Section -->
+        <div id="community" class="content-section">
+            <div class="section-title">Community</div>
+            <p style="color: #aaa; text-align: center; padding: 40px;">No community posts yet</p>
         </div>
 
-         Tasha Cobbs Collaborations 
-        <div class="section-title" style="font-size: 18px; margin-top: 32px;">Tasha Cobbs</div>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-thumbnail">Jesus heals<div class="video-duration">21:00</div></div>
-                <div class="video-details">
-                    <div class="video-title">Jesus heals (ft. Tasha Cobbs)</div>
-                    <div class="video-meta">269,123,456 views • 3 years ago</div>
+        <!-- About Section -->
+        <div id="about" class="content-section">
+            <div class="about-content">
+                <div class="section-title">About</div>
+                <div class="about-description">
+                    <p>Welcome to the official YouTube channel of Kabage Kamau, a devoted Gospel music minister, singer, songwriter, and recording artist. Through powerful worship and praise songs, Kabage spreads the transformative message of Jesus Christ to millions around the world.</p>
+                    <br>
+                    <p>With over 48 million subscribers and hundreds of millions of views, Kabage's ministry reaches hearts across the globe with biblical truths, inspiring testimonies, and soul-stirring melodies that bring people closer to God.</p>
+                    <br>
+                    <p>From his debut album "Savior" to his latest releases in "New Beginnings," every song is crafted to glorify God and minister to souls seeking hope, healing, and salvation through Jesus Christ.</p>
                 </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Overflowing Joy<div class="video-duration">16:25</div></div>
-                <div class="video-details">
-                    <div class="video-title">Overflowing Joy (ft. Tasha Cobbs)</div>
-                    <div class="video-meta">174,890,123 views • 4 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Voice of Truth<div class="video-duration">23:55</div></div>
-                <div class="video-details">
-                    <div class="video-title">Voice of Truth (ft. Tasha Cobbs)</div>
-                    <div class="video-meta">494,765,432 views • 2 years ago</div>
-                </div>
-            </div>
-        </div>
 
-         Cece Winans Collaborations 
-        <div class="section-title" style="font-size: 18px; margin-top: 32px;">Cece Winans</div>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-thumbnail">King of Glory<div class="video-duration">17:00</div></div>
-                <div class="video-details">
-                    <div class="video-title">King of Glory (ft. Cece Winans)</div>
-                    <div class="video-meta">1,119,234,567 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">The Risen King Jesus<div class="video-duration">25:30</div></div>
-                <div class="video-details">
-                    <div class="video-title">The Risen King Jesus (ft. Cece Winans)</div>
-                    <div class="video-meta">1,569,876,543 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Salvation in Jesus<div class="video-duration">19:45</div></div>
-                <div class="video-details">
-                    <div class="video-title">Salvation in Jesus (ft. Cece Winans)</div>
-                    <div class="video-meta">1,359,234,567 views • 5 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Jesus Never fails<div class="video-duration">22:10</div></div>
-                <div class="video-details">
-                    <div class="video-title">Jesus Never fails (ft. Cece Winans)</div>
-                    <div class="video-meta">1,219,234,567 views • 4 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Jesus Christ<div class="video-duration">18:30</div></div>
-                <div class="video-details">
-                    <div class="video-title">Jesus Christ (ft. Cece Winans)</div>
-                    <div class="video-meta">1,779,296,243 views • 1 year ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Our fortress is in Jesus Christ<div class="video-duration">24:15</div></div>
-                <div class="video-details">
-                    <div class="video-title">Our fortress is in Jesus Christ (ft. Cece Winans)</div>
-                    <div class="video-meta">1,829,194,567 views • 4 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Jesus christ my Lord<div class="video-duration">20:45</div></div>
-                <div class="video-details">
-                    <div class="video-title">Jesus christ my Lord (ft. Cece Winans)</div>
-                    <div class="video-meta">1,579,876,543 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Everlasting Arms<div class="video-duration">16:20</div></div>
-                <div class="video-details">
-                    <div class="video-title">Everlasting Arms (ft. Cece Winans)</div>
-                    <div class="video-meta">1,049,567,890 views • 2 years ago</div>
-                </div>
-            </div>
-        </div>
-
-         Mercy Masika Collaborations 
-        <div class="section-title" style="font-size: 18px; margin-top: 32px;">Mercy Masika</div>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-thumbnail">Nafsi Yangu Inakuabudu<div class="video-duration">15:30</div></div>
-                <div class="video-details">
-                    <div class="video-title">Nafsi Yangu Inakuabudu (My Soul Worships You) (ft. Mercy Masika)</div>
-                    <div class="video-meta">79,876,543 views • 5 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Neema Ya Ajabu<div class="video-duration">13:20</div></div>
-                <div class="video-details">
-                    <div class="video-title">Neema Ya Ajabu (Amazing Grace) (ft. Mercy Masika)</div>
-                    <div class="video-meta">64,567,890 views • 4 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Sifa Zako<div class="video-duration">17:10</div></div>
-                <div class="video-details">
-                    <div class="video-title">Sifa Zako (Your Praises) (ft. Mercy Masika)</div>
-                    <div class="video-meta">144,123,456 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Mungu Wangu Wa Ajabu<div class="video-duration">14:45</div></div>
-                <div class="video-details">
-                    <div class="video-title">Mungu Wangu Wa Ajabu (My Wonderful God) (ft. Mercy Masika)</div>
-                    <div class="video-meta">97,987,654 views • 2 years ago</div>
-                </div>
-            </div>
-        </div>
-
-         Brandon Lake Collaborations 
-        <div class="section-title" style="font-size: 18px; margin-top: 32px;">Brandon Lake</div>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-thumbnail">Jehovah<div class="video-duration">20:25</div></div>
-                <div class="video-details">
-                    <div class="video-title">Jehovah (ft. Brandon Lake)</div>
-                    <div class="video-meta">230,000,000 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Jesus Christ in Galilee<div class="video-duration">22:15</div></div>
-                <div class="video-details">
-                    <div class="video-title">Jesus Christ in Galilee (ft. Brandon Lake)</div>
-                    <div class="video-meta">320,039,000 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Praise Adonai<div class="video-duration">19:30</div></div>
-                <div class="video-details">
-                    <div class="video-title">Praise Adonai (ft. Brandon Lake)</div>
-                    <div class="video-meta">309,567,890 views • 4 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Redeemer Lives<div class="video-duration">18:20</div></div>
-                <div class="video-details">
-                    <div class="video-title">Redeemer Lives (ft. Brandon Lake)</div>
-                    <div class="video-meta">369,345,678 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Holy Ground<div class="video-duration">24:10</div></div>
-                <div class="video-details">
-                    <div class="video-title">Holy Ground (ft. Brandon Lake)</div>
-                    <div class="video-meta">619,101,234 views • 2 years ago</div>
-                </div>
-            </div>
-        </div>
-
-         Naomi Raine Collaborations 
-        <div class="section-title" style="font-size: 18px; margin-top: 32px;">Naomi Raine</div>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-thumbnail">Echoes of Grace<div class="video-duration">16:30</div></div>
-                <div class="video-details">
-                    <div class="video-title">Echoes of Grace (ft. Naomi Raine)</div>
-                    <div class="video-meta">289,123,456 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Unfailing Love<div class="video-duration">19:15</div></div>
-                <div class="video-details">
-                    <div class="video-title">Unfailing Love (ft. Naomi Raine)</div>
-                    <div class="video-meta">359,876,543 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">New Every Morning<div class="video-duration">14:25</div></div>
-                <div class="video-details">
-                    <div class="video-title">New Every Morning (ft. Naomi Raine)</div>
-                    <div class="video-meta">89,765,432 views • 4 years ago</div>
-                </div>
-            </div>
-        </div>
-
-         Mercy Chinwo Collaborations 
-        <div class="section-title" style="font-size: 18px; margin-top: 32px;">Mercy Chinwo</div>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-thumbnail">Covenant Keeper<div class="video-duration">13:30</div></div>
-                <div class="video-details">
-                    <div class="video-title">Covenant Keeper (ft. Mercy Chinwo)</div>
-                    <div class="video-meta">279,789,123 views • 5 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Great Deliverer<div class="video-duration">10:10</div></div>
-                <div class="video-details">
-                    <div class="video-title">Great Deliverer (ft. Mercy Chinwo)</div>
-                    <div class="video-meta">189,456,789 views • 4 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Spirit of Revival<div class="video-duration">17:45</div></div>
-                <div class="video-details">
-                    <div class="video-title">Spirit of Revival (ft. Mercy Chinwo)</div>
-                    <div class="video-meta">99,678,901 views • 3 years ago</div>
-                </div>
-            </div>
-        </div>
-
-         Size 8 Reborn Collaborations 
-        <div class="section-title" style="font-size: 18px; margin-top: 32px;">Size 8 Reborn</div>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-thumbnail">The lion of Judah<div class="video-duration">17:25</div></div>
-                <div class="video-details">
-                    <div class="video-title">The lion of Judah (ft. Size 8 Reborn)</div>
-                    <div class="video-meta">283,000,000 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Matunda<div class="video-duration">12:20</div></div>
-                <div class="video-details">
-                    <div class="video-title">Matunda (ft. Size 8 Reborn)</div>
-                    <div class="video-meta">89,456,789 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Pale Pale<div class="video-duration">15:10</div></div>
-                <div class="video-details">
-                    <div class="video-title">Pale Pale (ft. Size 8 Reborn)</div>
-                    <div class="video-meta">112,345,678 views • 4 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Jehovah Elohim<div class="video-duration">18:35</div></div>
-                <div class="video-details">
-                    <div class="video-title">Jehovah Elohim (ft. Size 8 Reborn)</div>
-                    <div class="video-meta">195,678,901 views • 2 years ago</div>
-                </div>
-            </div>
-        </div>
-
-         Paul Clement Collaborations 
-        <div class="section-title" style="font-size: 18px; margin-top: 32px;">Paul Clement</div>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-thumbnail">Steadfast Love<div class="video-duration">16:15</div></div>
-                <div class="video-details">
-                    <div class="video-title">Steadfast Love (ft. Paul Clement)</div>
-                    <div class="video-meta">73,456,789 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Endless Grace<div class="video-duration">14:30</div></div>
-                <div class="video-details">
-                    <div class="video-title">Endless Grace (ft. Paul Clement)</div>
-                    <div class="video-meta">119,123,456 views • 1 year ago</div>
-                </div>
-            </div>
-        </div>
-
-         Israel Mbonyi Collaborations 
-        <div class="section-title" style="font-size: 18px; margin-top: 32px;">Israel Mbonyi</div>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-thumbnail">Halleluya<div class="video-duration">20:15</div></div>
-                <div class="video-details">
-                    <div class="video-title">Halleluya (ft. Israel Mbonyi)</div>
-                    <div class="video-meta">56,000,000 views • 1 year ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Neema Yako<div class="video-duration">15:40</div></div>
-                <div class="video-details">
-                    <div class="video-title">Neema Yako (Your Grace) (ft. Israel Mbonyi)</div>
-                    <div class="video-meta">63,456,789 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Mungu Wangu<div class="video-duration">17:25</div></div>
-                <div class="video-details">
-                    <div class="video-title">Mungu Wangu (My God) (ft. Israel Mbonyi)</div>
-                    <div class="video-meta">89,123,456 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Furaha Yangu<div class="video-duration">13:50</div></div>
-                <div class="video-details">
-                    <div class="video-title">Furaha Yangu (My Joy) (ft. Israel Mbonyi)</div>
-                    <div class="video-meta">75,987,654 views • 1 year ago</div>
-                </div>
-            </div>
-        </div>
-
-         Forrest Frank Collaborations 
-        <div class="section-title" style="font-size: 18px; margin-top: 32px;">Forrest Frank</div>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-thumbnail">The Lord's Goodness<div class="video-duration">3:00</div></div>
-                <div class="video-details">
-                    <div class="video-title">The Lord's Goodness (ft. Forrest Frank)</div>
-                    <div class="video-meta">482,039,028 views • 1 year ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Praise The Lord<div class="video-duration">4:15</div></div>
-                <div class="video-details">
-                    <div class="video-title">Praise The Lord (ft. Forrest Frank)</div>
-                    <div class="video-meta">271,293,293 views • 1 year ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">My Testimony<div class="video-duration">5:30</div></div>
-                <div class="video-details">
-                    <div class="video-title">My Testimony (ft. Forrest Frank)</div>
-                    <div class="video-meta">212,389,293 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">He Will Provide<div class="video-duration">7:20</div></div>
-                <div class="video-details">
-                    <div class="video-title">He Will Provide (ft. Forrest Frank)</div>
-                    <div class="video-meta">543,929,394 views • 2 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">I Will Worship You<div class="video-duration">6:45</div></div>
-                <div class="video-details">
-                    <div class="video-title">I Will Worship You (ft. Forrest Frank)</div>
-                    <div class="video-meta">48,293,283 views • 4 years ago</div>
-                </div>
-            </div>
-        </div>
-
-         Sinanch Collaborations 
-        <div class="section-title" style="font-size: 18px; margin-top: 32px;">Sinanch</div>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-thumbnail">The Blood That Saves<div class="video-duration">18:20</div></div>
-                <div class="video-details">
-                    <div class="video-title">The Blood That Saves (ft. Sinanch)</div>
-                    <div class="video-meta">453,293,192 views • 4 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Holy, Holy, Holy<div class="video-duration">21:15</div></div>
-                <div class="video-details">
-                    <div class="video-title">Holy, Holy, Holy (ft. Sinanch)</div>
-                    <div class="video-meta">384,283,292 views • 5 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">Jesus Is Coming<div class="video-duration">19:30</div></div>
-                <div class="video-details">
-                    <div class="video-title">Jesus Is Coming (ft. Sinanch)</div>
-                    <div class="video-meta">398,289,243 views • 5 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">My Soul Is At Rest<div class="video-duration">16:45</div></div>
-                <div class="video-details">
-                    <div class="video-title">My Soul Is At Rest (ft. Sinanch)</div>
-                    <div class="video-meta">219,283,293 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">God Is My Refuge<div class="video-duration">17:20</div></div>
-                <div class="video-details">
-                    <div class="video-title">God Is My Refuge (ft. Sinanch)</div>
-                    <div class="video-meta">342,193,294 views • 3 years ago</div>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-thumbnail">You Are My Strength<div class="video-duration">15:10</div></div>
-                <div class="video-details">
-                    <div class="video-title">You Are My Strength (ft. Sinanch)</div>
-                    <div class="video-meta">412,293,293 views • 1 year ago</div>
+                <div class="section-title">Links</div>
+                <div class="social-media-grid">
+                    <div class="social-card">
+                        <div class="social-icon">📷</div>
+                        <div class="social-name">Instagram</div>
+                        <div class="social-followers">101M</div>
+                        <div class="social-label">followers</div>
+                    </div>
+                    <div class="social-card">
+                        <div class="social-icon">📘</div>
+                        <div class="social-name">Facebook</div>
+                        <div class="social-followers">48.2M</div>
+                        <div class="social-label">followers</div>
+                    </div>
+                    <div class="social-card">
+                        <div class="social-icon">💬</div>
+                        <div class="social-name">WhatsApp</div>
+                        <div class="social-followers">59M</div>
+                        <div class="social-label">followers</div>
+                    </div>
+                    <div class="social-card">
+                        <div class="social-icon">✈️</div>
+                        <div class="social-name">Telegram</div>
+                        <div class="social-followers">32.2M</div>
+                        <div class="social-label">followers</div>
+                    </div>
+                    <div class="social-card">
+                        <div class="social-icon">🎵</div>
+                        <div class="social-name">Spotify</div>
+                        <div class="social-followers">67.39M</div>
+                        <div class="social-label">followers</div>
+                    </div>
+                    <div class="social-card">
+                        <div class="social-icon">🍎</div>
+                        <div class="social-name">Apple Music</div>
+                        <div class="social-followers">61.2M</div>
+                        <div class="social-label">followers</div>
+                    </div>
+                    <div class="social-card">
+                        <div class="social-icon">🐦</div>
+                        <div class="social-name">Twitter</div>
+                        <div class="social-followers">84.8M</div>
+                        <div class="social-label">followers</div>
+                    </div>
+                    <div class="social-card">
+                        <div class="social-icon">🎬</div>
+                        <div class="social-name">TikTok</div>
+                        <div class="social-followers">115.9M</div>
+                        <div class="social-label">followers</div>
+                    </div>
                 </div>
             </div>
         </div>
